@@ -7,16 +7,8 @@ public class Theater {
         this.ticketSeller = ticketSeller;
     }
 
-    public void enter(Audience audience) {
-        if (audience.getBag().hasInvitation()) {
-            Ticket ticket = ticketSeller.getTicketOffice().getTicket();
-            audience.getBag().setTicket(ticket);
-        } else {
-            Ticket ticket = ticketSeller.getTicketOffice().getTicket();
-
-            audience.getBag().minusAmount(ticket.getFee());
-            ticketSeller.getTicketOffice().plusAmount(ticket.getFee());
-            audience.getBag().setTicket(ticket);
-        }
+    // TicketSeller 클래스의 sellTo 메소드 선언을 통한 캡슐화 -> Theater-TicketSeller 간의 결합도 감소
+    public void enter(Audience audience) {  
+        ticketSeller.sellTo(audience);
     }
 }
