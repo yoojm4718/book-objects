@@ -7,7 +7,8 @@ public class Theater {
         this.ticketSeller = ticketSeller;
     }
 
-    // TicketSeller 클래스의 sellTo 메소드 선언을 통한 캡슐화 -> Theater-TicketSeller 간의 결합도 감소
+    // TicketSeller 클래스의 sellTo 메소드 선언을 통한 캡슐화
+    //  -> Theater는 TicketOffice, Ticket의 존재를 이제 알 필요가 없음
     public void enter(Audience audience) {  
         ticketSeller.sellTo(audience);
     }
